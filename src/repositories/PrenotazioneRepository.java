@@ -72,11 +72,12 @@ public class PrenotazioneRepository {
     }
 
     public static void insertPrenotazione(PrenotazioneRequest request) throws SQLException {
-        String query = "INSERT INTO prenotazione (data_prenotazione,prezzo_totale, utente_id,spettacolo_id,posto_id)" +
+        String query = "INSERT INTO prenotazione (data_prenotazione,prezzo_biglietto, utente_id,spettacolo_id,posto_id)" +
                 "VALUES (?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setTimestamp(1,Timestamp.valueOf(request.dataPrenotazione()));
-        statement.setDouble(2,request.prezzoTotale());
+        //statement.setDouble(2,request.prezzoTotale());
+        statement.setDouble(2, SpettacoloRepository.getById(request.idSpettacolo()).getPrezzo());
         statement.setInt(3, request.idUtente());
         statement.setInt(4, request.idSpettacolo());
         statement.setInt(5, request.idPosto());
@@ -84,10 +85,10 @@ public class PrenotazioneRepository {
     }
 
     public static void updatePrenotazione(Integer id, PrenotazioneRequest request) throws SQLException {
-        String query = "UPDATE prenotazione SET data_prenotazione = ?, prezzo_totale = ?, utente_id = ?, spettacolo_id = ?, posto_id = ? WHERE id = ?";
+        String query = "UPDATE prenotazione SET data_prenotazione = ?, prezzo_biglietto = ?, utente_id = ?, spettacolo_id = ?, posto_id = ? WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setTimestamp(1,Timestamp.valueOf(request.dataPrenotazione()));
-        statement.setDouble(2,request.prezzoTotale());
+        statement.setDouble(2,SpettacoloRepository.getById(request.idSpettacolo()).getPrezzo());
         statement.setInt(3, request.idUtente());
         statement.setInt(4, request.idSpettacolo());
         statement.setInt(5, request.idPosto());
@@ -106,7 +107,7 @@ public class PrenotazioneRepository {
         Prenotazione prenotazione = new Prenotazione();
         prenotazione.setId(resultSet.getInt("id"));
         prenotazione.setDataPrenotazione(resultSet.getTimestamp("data_prenotazione").toLocalDateTime());
-        prenotazione.setPrezzoTotale(resultSet.getDouble("prezzo_totale"));
+        prenotazione.setPrezzoTotale(resultSet.getDouble("prezzo_biglietto"));
         prenotazione.setIdUtente(resultSet.getInt("utente_id"));
         prenotazione.setIdSpettacolo(resultSet.getInt("spettacolo_id"));
         prenotazione.setIdPosto(resultSet.getInt("posto_id"));

@@ -1,5 +1,6 @@
 package services;
 
+import com.sun.net.httpserver.Request;
 import dto.PrenotazioneRequest;
 import dto.SpettacoloRequest;
 import dto.UtenteRequest;
@@ -63,6 +64,12 @@ public class UtenteService {
         PrenotazioneRepository.insertPrenotazione(request);
     }
 
+    public static Double calcolaPrezzoTotale(Integer idUtente, Integer idSpettacolo) throws SQLException {
+        List<Prenotazione> prenotazioniTotali = PrenotazioneRepository.getAllByIdUtenteEIdSpettacolo(idUtente, idSpettacolo);
+        if(prenotazioniTotali.isEmpty())return 0.0;
+        Double prezzoTotale = prenotazioniTotali.size() * SpettacoloRepository.getById(idSpettacolo).getPrezzo();
+        return prezzoTotale;
+    }
 
 
 }

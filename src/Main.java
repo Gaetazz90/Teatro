@@ -24,28 +24,29 @@ public class Main {
 //
 //        SpettacoloRepository.insertSpettacolo((new SpettacoloRequest("3 uomini e una gamba", LocalDateTime.of(2025, 3, 22, 20, 30, 0), "commedia", 15.80, 2, 1)));
 
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 1, 1));
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 1, 2));
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 1, 3));
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 1, 4));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 1, 1));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 1, 2));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 1, 3));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 1, 4));
+//        System.out.println(UtenteService.calcolaPrezzoTotale(1, 1));
 
 
 //        Metodo ricerca spettacoli
 //        System.out.println(UtenteService.searchSpettacoli("Roma", LocalDateTime.of(2025, 3, 22, 20, 30, 0)));
 
 //        Metodo verifica che un utente non può effettuare più di quattro prenotazioni
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 1, 5));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 1, 5));
 
 //        Metodo verifica che un utente non può prenotare un posto gia prenotato
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 3, 1, 1));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 3, 1, 1));
 
 //        SpettacoloRepository.insertSpettacolo((new SpettacoloRequest("Ricomincio da tre", LocalDateTime.of(2025, 1, 11, 20, 30, 0), "drammatico", 15.80, 2, 1)));
 //        SpettacoloRepository.insertSpettacolo((new SpettacoloRequest("Ricomincio da quattro", LocalDateTime.of(2025, 1, 12, 20, 30, 0), "drammatico", 15.80, 2, 1)));
 //        SpettacoloRepository.insertSpettacolo((new SpettacoloRequest("Ricomincio da cinque", LocalDateTime.of(2025, 1, 13, 20, 30, 0), "drammatico", 15.80, 2, 1)));
 
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 2, 1));
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 3, 2));
-//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 15.80, 1, 4, 3));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 2, 1));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 3, 2));
+//        UtenteService.eseguiPrenotazione(new PrenotazioneRequest(LocalDateTime.now(), 1, 4, 3));
 
 //        SpettacoloRepository.insertSpettacolo(new SpettacoloRequest("La commedia della vita", LocalDateTime.of(2025, 1, 18, 21, 0), "commedia", 12.50, 3, 1));
 //        SpettacoloRepository.insertSpettacolo(new SpettacoloRequest("Terrore al cinema", LocalDateTime.of(2025, 1, 20, 22, 15), "horror", 18.00, 5, 1));
@@ -58,7 +59,6 @@ public class Main {
 //        SpettacoloRepository.insertSpettacolo(new SpettacoloRequest("Lacrime sul palco", LocalDateTime.of(2025, 2, 3, 20, 0), "drammatico", 17.30, 11, 1));
 
 //        System.out.println(SpettacoloRepository.suggerimentoSpettacoli(1));
-
 
 
     }
